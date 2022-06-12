@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+  namespace: product
+  labels:
+    app: database
+spec:
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - name: database
+        image: manassesalmeida/docker-sample-project-database:1.0
+        ports:
+        - containerPort: 3306
+  replicas: 1

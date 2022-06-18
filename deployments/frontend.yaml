@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: manassesalmeida/docker-sample-project-frontend:1.1
+        image: manassesalmeida/docker-sample-project-frontend:1.0
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
   replicas: 1

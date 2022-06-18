@@ -19,4 +19,5 @@ spec:
         image: manassesalmeida/docker-sample-project-backend:1.0
         ports:
         - containerPort: 8080
+        imagePullPolicy: Always
   replicas: 1

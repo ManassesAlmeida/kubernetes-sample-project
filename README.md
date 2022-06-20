@@ -8,17 +8,20 @@ Passos para executar a aplicação:
 1. Clonar o projeto do repositório.
     - Escolha um diretório e execute o comando: 
     <br><code>git clone https://github.com/ManassesAlmeida/kubernetes-sample-project.git</code>
-2. Criar os ingresses, aplicando na ordem abaixo.
+2. Criar cluster Minikube.
+    - Execute o comando: <code>minikube delete</code>
+    - Execute o comando: <code>minikube start</code>
+3. Criar os ingresses, aplicando na ordem abaixo.
     - No diretório <i>'kubernetes-sample-project'</i> (diretório raiz) execute os comandos: 
-    <br><code>kubectl apply -f .\ingress\ingress-nginx-controller-deploy.yaml</code> (Após executar este comando, aguarde cerca de 1 minuto para que a criação dos serviços finalize)
-    <br><code>kubectl apply -f .\ingress\ingress.yaml</code>
-3. Criar o namespace.
+        - <code>kubectl apply -f .\ingress\ingress-nginx-controller-deploy.yaml</code> (Após executar este comando, aguarde cerca de 1 minuto para que a criação dos serviços finalize)
+        - <code>kubectl apply -f .\ingress\ingress.yaml</code>
+4. Criar o namespace.
     - No diretório <i>'kubernetes-sample-project'</i> (diretório raiz) execute o comando: <code>kubectl apply -f .\namespaces\ </code>
-4. Criar os deployments.
+5. Criar os deployments.
     - No diretório <i>'kubernetes-sample-project'</i> (diretório raiz) execute o comando: <code>kubectl apply -f .\deployments\ </code>
-5. Criar os services.
+6. Criar os services.
     - No diretório <i>'kubernetes-sample-project'</i> (diretório raiz) execute o comando: <code>kubectl apply -f .\services\ </code>
-6. Faça o redirecionamento de porta (necessário no Windows) do serviço <i>backend</i> e do serviço <i>frontend</i>.
+7. Faça o redirecionamento de porta (necessário no Windows) do serviço <i>backend</i> e do serviço <i>frontend</i>.
     - Para redirecionar a porta do serviço backend execute o comando: <code>kubectl port-forward service/backend 31000:8080 -n product</code>
     - Para redirecionar a porta do serviço frontend execute o comando: <code>kubectl port-forward service/frontend 31001:80 -n product</code>
 
